@@ -26,7 +26,7 @@ def index():
 
 
 def retrieve_data(country, params):
-    keys = ['dates', 'S', 'E', 'H', 'I', 'C', 'R', 'D', 'Total Cases', 'daily_CFR', 'Beds', 'Actual Cases', 'Actual Deaths']
+    keys = ['dates', 'S', 'E', 'H', 'I', 'C', 'R', 'D', 'Total Cases', 'Total CFR', 'Daily CFR', 'Beds', 'Actual Cases', 'Actual Deaths']
 
     data_list = simulate(country, params)
 

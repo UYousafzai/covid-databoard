@@ -121,7 +121,7 @@ def simulate(country, params):
                                 s=s)
 
     dates = list(map(lambda date: str(date.date()), dates))
-    return dates, S.tolist(), E.tolist(), (I*0.2).tolist(), I.tolist(), C.tolist(), R.tolist(), D.tolist(), (E+I+C).tolist(), daily_CFR, beds, confirmed_cases.tolist(), confirmed_deaths.tolist()
+    return dates, S.tolist(), E.tolist(), (I*0.2).tolist(), I.tolist(), C.tolist(), R.tolist(), D.tolist(), (E+I+C).tolist(), total_CFR, daily_CFR, beds, confirmed_cases.tolist(), confirmed_deaths.tolist()
 
 
 
@@ -136,7 +136,6 @@ def get_optimized_params(country):
     # Process the dataframes to extract the relevant information
     if country == 'ireland':
         func = lambda x: "-".join(x.split()[0].split('/'))
-        # func = lambda x: "-".join(x.split('/')[::-1])
     elif country == 'germany':
         func = lambda x: "-".join(x.split('/')[::-1])
     elif country == 'italy':
@@ -157,7 +156,16 @@ def get_optimized_params(country):
 
     # Extract total number of beds as the last value before an empty cell
     index = beds_df.index[beds_df[8].isnull()][1] - 1
-    total_beds = int(beds_df.values[index, 8]) // 10
+    total_beds = int(beds_df.values[index, 8])
+    if country == 'ireland':
+        total_beds = (1-0.9)*total_beds
+    elif country == 'germany':
+        total_beds = (1-0.798)*total_beds
+    elif country == 'italy':
+        total_beds = (1-0.789)*total_beds
+    elif country == 'uk':
+        total_beds = (1-0.843)*total_beds
+    total_beds = int(total_beds)
 
     init_cases = confirmed_cases[0]
     # "DD/MM/YYYY" to "YYYY-MM-DD"

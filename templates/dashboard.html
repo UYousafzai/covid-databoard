@@ -73,46 +73,44 @@ The above copyright notice and this permission notice shall be included in all c
                   <canvas id="mychart" style="display:block; width:100%; height:30%;" height="322" width="644"
                     class="chartjs-render-monitor">
                   </canvas>
-                  <button id="randomizeData">Randomize Data</button>
-                  <button id="addDataset">Add Dataset</button>
-                  <button id="removeDataset">Remove Dataset</button>
-                  <button id="addData">Add Data</button>
-                  <button id="removeData">Remove Data</button>
-                  <button id="germany">Germany</button>
-                  <button id="italy">Italy</button><br>
+                </div>
+
+                <div class="card-body table-responsive">
+                  <canvas id="mychart2" style="display:block; width:100%; height:10%;" height="322" width="644"
+                    class="chartjs-render-monitor">
+                  </canvas>
+                </div>
+                <form id="m_form" name="m_form" action="/get_data" method="post">
+
+                  <label for="countries">Choose a country:</label>
+                  <select name="countries" id="countries" onchange="getDefaults()">
+                    <option value="germany">Germany</option>
+                    <option value="ireland">Ireland</option>
+                    <option value="italy">Italy</option>
+                    <option value="uk">United Kingdom</option>
+                  </select>
                   <br>
 
-                  <form id="m_form" name="m_form" action="/get_data" method="post">
+                  <label for="Beds">Beds:</label>
+                  <input type="number" id="Beds" name="Beds" value=0><br>
 
-                    <label for="countries">Choose a country:</label>
-                    <select name="countries" id="countries" onchange="getDefaults()">
-                      <option value="germany">Germany</option>
-                      <option value="ireland">Ireland</option>
-                      <option value="italy">Italy</option>
-                      <option value="uk">United Kingdom</option>
-                    </select>
+                  <label for="R0-Start">R0 Start:</label>
+                  <input type="number" id="R0-Start" name="R0-Start" value=0 step="0.0001"><br>
 
-                    <label for="Beds">Beds:</label>
-                    <input type="number" id="Beds" name="Beds" value=0><br>
+                  <label for="k">k:</label>
+                  <input type="number" id="k" name="k" value=0 step="0.0001"><br>
 
-                    <label for="R0-Start">R0 Start:</label>
-                    <input type="number" id="R0-Start" name="R0-Start" value=0 step="0.0001"><br>
+                  <label for="x0">X0:</label>
+                  <input type="number" id="x0" name="x0" value=0 step="0.0001"><br>
 
-                    <label for="k">k:</label>
-                    <input type="number" id="k" name="k" value=0 step="0.0001"><br>
+                  <label for="R0-End">R0 End:</label>
+                  <input type="number" id="R0-End" name="R0-End" value=0 step="0.0001"><br>
+                  
+                  <input id="submit_m_form" name="submit_m_form" type="submit" value="Submit">
+                </form> 
 
-                    <label for="x0">X0:</label>
-                    <input type="number" id="x0" name="x0" value=0 step="0.0001"><br>
-
-                    <label for="R0-End">R0 End:</label>
-                    <input type="number" id="R0-End" name="R0-End" value=0 step="0.0001"><br>
-                    
-                    <input id="submit_m_form" name="submit_m_form" type="submit" value="Submit">
-                  </form> 
-
-                  <label for="days">Number of days (between 1 and 1500):</label>
-                  <input type="number" id="days" name="days" min="1" max="1500" value="200" onchange="updategraphs()">
-                </div>
+                <label for="days">Number of days (between 1 and 1500):</label>
+                <input type="number" id="days" name="days" min="1" max="1500" value="200" onchange="updategraphs()">
               </div>
             </div>
           </div>
@@ -154,45 +152,33 @@ The above copyright notice and this permission notice shall be included in all c
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>
   <script>
     var flaskdata = JSON.parse('{{data | tojson | safe}}');
-    var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
     window.chartColors = {
       red: 'rgb(255, 99, 132)',
       orange: 'rgb(255, 159, 64)',
-      yellow: 'rgb(255, 205, 86)',
-      green: 'rgb(75, 192, 192)',
+      lightblue: 'rgb(50, 255, 255)',
+      magenta: 'rgb(255, 100, 255)',
       blue: 'rgb(54, 162, 235)',
       purple: 'rgb(153, 102, 255)',
       grey: 'rgb(201, 203, 207)',
       pink: 'rgb(255, 51, 153)',
-      magenta: 'rgb(255, 100, 255)',
-      lightblue: 'rgb(50, 255, 255)',
+      green: 'rgb(75, 192, 192)',
+      yellow: 'rgb(255, 205, 86)',
       black: 'rgb(10, 10, 10)',
       darkred: 'rgb(120, 0, 0)',
       darkgreen: 'rgb(0, 120, 0)',
       darkpink: 'rgb(102, 0, 51)',
     };
 
-    var randomScalingFactor = function () {
-      return Math.round(Math.random() * 100);
-    };
-
     var config = {
       type: 'line',
       data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        labels: [],
         datasets: [{
           label: 'My First dataset',
           backgroundColor: window.chartColors.red,
           borderColor: window.chartColors.red,
           data: [
-            randomScalingFactor(),
-            randomScalingFactor(),
-            randomScalingFactor(),
-            randomScalingFactor(),
-            randomScalingFactor(),
-            randomScalingFactor(),
-            randomScalingFactor()
           ],
           fill: false,
         }
@@ -237,16 +223,91 @@ The above copyright notice and this permission notice shall be included in all c
         }
       }
     };
+
+    var config2 = {
+      type: 'line',
+      data: {
+        labels: [],
+        datasets: [
+        ]
+      },
+      options: {
+        responsive: true,
+        title: {
+          display: true,
+          text: 'Daily and Total CFR'
+        },
+        tooltips: {
+          mode: 'index',
+          intersect: false,
+        },
+        hover: {
+          mode: 'nearest',
+          intersect: true
+        },
+        scales: {
+          xAxes: [{
+            display: true,
+            scaleLabel: {
+              display: true,
+              labelString: 'Date'
+            }
+          }],
+          yAxes: [{
+            display: true,
+            scaleLabel: {
+              display: true,
+              labelString: 'Value'
+            },
+          }]
+        }
+      }
+    };
     
     var colorNames = Object.keys(window.chartColors);
     
+    const verticalLinePlugin = {
+      getLinePosition: function (chart, pointIndex) {
+          const meta = chart.getDatasetMeta(0); // first dataset is used to discover X coordinate of a point
+          const data = meta.data;
+          return data[pointIndex]._model.x;
+      },
+      renderVerticalLine: function (chartInstance, pointIndex) {
+          const lineLeftOffset = this.getLinePosition(chartInstance, pointIndex);
+          const scale = chartInstance.scales['y-axis-0'];
+          const context = chartInstance.chart.ctx;
+
+          // render vertical line
+          context.beginPath();
+          context.strokeStyle = '#ff0000';
+          context.moveTo(lineLeftOffset, scale.top);
+          context.lineTo(lineLeftOffset, scale.bottom);
+          context.stroke();
+
+          // write label
+          context.fillStyle = "#ff0000";
+          context.textAlign = 'center';
+          context.fillText('MY TEXT', lineLeftOffset, (scale.bottom - scale.top) / 2 + scale.top);
+      },
+
+      afterDatasetsDraw: function (chart, easing) {
+          if (chart.config.lineAtIndex) {
+              chart.config.lineAtIndex.forEach(pointIndex => this.renderVerticalLine(chart, pointIndex));
+          }
+      }
+    };
+
     window.onload = function () {
+      Chart.plugins.register(verticalLinePlugin);
       var ctx = document.getElementById('mychart').getContext('2d');
       window.myLine = new Chart(ctx, config);
+      var ctx = document.getElementById('mychart2').getContext('2d');
+      window.myLine2 = new Chart(ctx, config2);
     };
 
     function updategraphs() {
       config.data.labels = flaskdata.dates.slice(0, document.getElementById("days").value)
+      config2.data.labels = flaskdata.dates.slice(0, document.getElementById("days").value)
 
       document.getElementById('countries').value = flaskdata.country
       params = flaskdata.params
@@ -258,6 +319,7 @@ The above copyright notice and this permission notice shall be included in all c
 
       keys = ['S', 'E', 'H', 'I', 'C', 'R', 'D', 'Total Cases']
       config.data.datasets = []
+      config2.data.datasets = []
 
       keys.forEach(function(key){
           var colorName = colorNames[config.data.datasets.length % colorNames.length];
@@ -275,6 +337,10 @@ The above copyright notice and this permission notice shall be included in all c
           config.data.datasets.push(newDataset);
           if(key==='S' || key==='R')
             newDataset.hidden=true
+          if(key==='I'){
+            console.log(params[3])
+            newDataset.lineAtIndex = [params[3]|0]
+          }
       })
       var colorName = colorNames[config.data.datasets.length % colorNames.length];
       var newColor = window.chartColors[colorName];
@@ -308,11 +374,29 @@ The above copyright notice and this permission notice shall be included in all c
           config.data.datasets.push(newDataset);
       })
 
+      keys = ['Total CFR', 'Daily CFR']      
+      keys.forEach(function(key){
+          var colorName = colorNames[config2.data.datasets.length % colorNames.length];
+          var newColor = window.chartColors[colorName];
+          var newDataset = {
+            label: key,
+            backgroundColor: newColor,
+            borderColor: newColor,
+            fill: false,
+            pointRadius: 2,
+            hidden:false,
+            // borderDash: [50, 50],
+            data: flaskdata[key],
+          };
+          config2.data.datasets.push(newDataset);
+      })
+
       // config.data.datasets.forEach(function (dataset) {
       //   dataset.data.pop();
       // });
 
       window.myLine.update();
+      window.myLine2.update();
     }
 
     function getDefaults(){
