@@ -79,38 +79,38 @@ The above copyright notice and this permission notice shall be included in all c
                   <canvas id="mychart2" style="display:block; width:100%; height:10%;" height="322" width="644"
                     class="chartjs-render-monitor">
                   </canvas>
+                  <form id="m_form" name="m_form" action="/get_data" method="post">
+
+                    <label for="countries">Choose a country:</label>
+                    <select name="countries" id="countries" onchange="getDefaults()">
+                      <option value="germany">Germany</option>
+                      <option value="ireland">Ireland</option>
+                      <option value="italy">Italy</option>
+                      <option value="uk">United Kingdom</option>
+                    </select>
+                    <br>
+
+                    <label for="Beds">Beds &emsp;&emsp;&nbsp;:</label>
+                    <input type="number" id="Beds" name="Beds" value=0><br>
+
+                    <label for="R0-Start">R0 Start &emsp;:</label>
+                    <input type="number" id="R0-Start" name="R0-Start" value=0 step="0.0001"><br>
+
+                    <label for="k">k&emsp;&emsp;&emsp;&emsp;&nbsp;:</label>
+                    <input type="number" id="k" name="k" value=0 step="0.0001"><br>
+
+                    <label for="x0">X0&emsp;&emsp;&emsp;&nbsp;&nbsp;:</label>
+                    <input type="number" id="x0" name="x0" value=0 step="0.0001"><br>
+
+                    <label for="R0-End">R0 End&emsp;&nbsp;&nbsp;:</label>
+                    <input type="number" id="R0-End" name="R0-End" value=0 step="0.0001"><br>
+                    
+                    <input id="submit_m_form" name="submit_m_form" type="submit" value="Simulate">
+                  </form> 
+                  <label for="days">Number of days (between 1 and 1500):</label>
+                  <input type="number" id="days" name="days" min="1" max="1500" value="200" onchange="updategraphs()">
                 </div>
-                <form id="m_form" name="m_form" action="/get_data" method="post">
 
-                  <label for="countries">Choose a country:</label>
-                  <select name="countries" id="countries" onchange="getDefaults()">
-                    <option value="germany">Germany</option>
-                    <option value="ireland">Ireland</option>
-                    <option value="italy">Italy</option>
-                    <option value="uk">United Kingdom</option>
-                  </select>
-                  <br>
-
-                  <label for="Beds">Beds:</label>
-                  <input type="number" id="Beds" name="Beds" value=0><br>
-
-                  <label for="R0-Start">R0 Start:</label>
-                  <input type="number" id="R0-Start" name="R0-Start" value=0 step="0.0001"><br>
-
-                  <label for="k">k:</label>
-                  <input type="number" id="k" name="k" value=0 step="0.0001"><br>
-
-                  <label for="x0">X0:</label>
-                  <input type="number" id="x0" name="x0" value=0 step="0.0001"><br>
-
-                  <label for="R0-End">R0 End:</label>
-                  <input type="number" id="R0-End" name="R0-End" value=0 step="0.0001"><br>
-                  
-                  <input id="submit_m_form" name="submit_m_form" type="submit" value="Submit">
-                </form> 
-
-                <label for="days">Number of days (between 1 and 1500):</label>
-                <input type="number" id="days" name="days" min="1" max="1500" value="200" onchange="updategraphs()">
               </div>
             </div>
           </div>

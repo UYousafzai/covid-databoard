@@ -65,7 +65,7 @@ def simulate(country, params):
         # func = lambda x: "-".join(x.split('/')[::-1])
     elif country == 'germany':
         func = lambda x: "-".join(x.split('/')[::-1])
-    elif country == 'italy':
+    elif country == 'italy' or country == 'uk':
         func = lambda x: "-".join([x.split('/')[2], ('0' + x.split('/')[0])[-2:], ('0' + x.split('/')[1])[-2:]])
     dates_cases = np.array(list(map(func, cases_df["date"].values)))
     dates_deaths = np.array(list(map(func, deaths_df["date"].values)))
@@ -138,7 +138,7 @@ def get_optimized_params(country):
         func = lambda x: "-".join(x.split()[0].split('/'))
     elif country == 'germany':
         func = lambda x: "-".join(x.split('/')[::-1])
-    elif country == 'italy':
+    elif country == 'italy' or country == 'uk':
         func = lambda x: "-".join([x.split('/')[2], ('0' + x.split('/')[0])[-2:], ('0' + x.split('/')[1])[-2:]])
     dates_cases = np.array(list(map(func, cases_df["date"].values)))
     dates_deaths = np.array(list(map(func, deaths_df["date"].values)))

@@ -1,7 +1,4 @@
-import json
-import os
 from flask import Flask, render_template, request, redirect, send_file, jsonify
-from werkzeug.utils import secure_filename
 from covidmodel import get_optimized_params, simulate
 
 app = Flask(__name__)
@@ -55,7 +52,7 @@ def get_data():
 
 
 if __name__ == "__main__":   
-    countries = ['germany', 'italy', 'ireland']
+    countries = ['germany', 'italy', 'ireland', 'uk']
     for country in countries:
         default_params[country] = get_optimized_params(country)
         

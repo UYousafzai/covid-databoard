@@ -1,0 +1,69 @@
+Total hospital beds,,,,,,,,
+VAR,Variable,UNIT,Measure,COU,Country,YEA,Year,Value
+HOPITBED,Total hospital beds,NOMBRENB,Number,GBR,United Kingdom,2000,2000,240144
+HOPITBED,Total hospital beds,NOMBRENB,Number,GBR,United Kingdom,2001,2001,238641
+HOPITBED,Total hospital beds,NOMBRENB,Number,GBR,United Kingdom,2002,2002,236205
+HOPITBED,Total hospital beds,NOMBRENB,Number,GBR,United Kingdom,2003,2003,235512
+HOPITBED,Total hospital beds,NOMBRENB,Number,GBR,United Kingdom,2004,2004,231399
+HOPITBED,Total hospital beds,NOMBRENB,Number,GBR,United Kingdom,2005,2005,224882
+HOPITBED,Total hospital beds,NOMBRENB,Number,GBR,United Kingdom,2006,2006,215513
+HOPITBED,Total hospital beds,NOMBRENB,Number,GBR,United Kingdom,2007,2007,207789
+HOPITBED,Total hospital beds,NOMBRENB,Number,GBR,United Kingdom,2008,2008,205976
+HOPITBED,Total hospital beds,NOMBRENB,Number,GBR,United Kingdom,2009,2009,203326
+HOPITBED,Total hospital beds,NOMBRENB,Number,GBR,United Kingdom,2010,2010,183831
+HOPITBED,Total hospital beds,NOMBRENB,Number,GBR,United Kingdom,2011,2011,181972
+HOPITBED,Total hospital beds,NOMBRENB,Number,GBR,United Kingdom,2012,2012,178841
+HOPITBED,Total hospital beds,NOMBRENB,Number,GBR,United Kingdom,2013,2013,176791
+HOPITBED,Total hospital beds,NOMBRENB,Number,GBR,United Kingdom,2014,2014,176324
+HOPITBED,Total hospital beds,NOMBRENB,Number,GBR,United Kingdom,2015,2015,169995
+HOPITBED,Total hospital beds,NOMBRENB,Number,GBR,United Kingdom,2016,2016,168934
+HOPITBED,Total hospital beds,NOMBRENB,Number,GBR,United Kingdom,2017,2017,167589
+,,,,,,,,
+,,,,,,,,
+Curative (acute) care beds,,,,,,,,
+VAR,Variable,UNIT,Measure,COU,Country,YEA,Year,Value
+HOPILICS,Curative (acute) care beds,NOMBRENB,Number,GBR,United Kingdom,2017,2017,139647
+,,,,,,,,
+,,,,,,,,
+Psychiatric care beds,,,,,,,,
+VAR,Variable,UNIT,Measure,COU,Country,YEA,Year,Value
+HOPILIPS,Psychiatric care beds,NOMBRENB,Number,GBR,United Kingdom,2000,2000,54117
+HOPILIPS,Psychiatric care beds,NOMBRENB,Number,GBR,United Kingdom,2001,2001,51864
+HOPILIPS,Psychiatric care beds,NOMBRENB,Number,GBR,United Kingdom,2002,2002,50253
+HOPILIPS,Psychiatric care beds,NOMBRENB,Number,GBR,United Kingdom,2003,2003,49410
+HOPILIPS,Psychiatric care beds,NOMBRENB,Number,GBR,United Kingdom,2004,2004,47033
+HOPILIPS,Psychiatric care beds,NOMBRENB,Number,GBR,United Kingdom,2005,2005,44537
+HOPILIPS,Psychiatric care beds,NOMBRENB,Number,GBR,United Kingdom,2006,2006,41850
+HOPILIPS,Psychiatric care beds,NOMBRENB,Number,GBR,United Kingdom,2007,2007,40118
+HOPILIPS,Psychiatric care beds,NOMBRENB,Number,GBR,United Kingdom,2008,2008,38967
+HOPILIPS,Psychiatric care beds,NOMBRENB,Number,GBR,United Kingdom,2009,2009,37457
+HOPILIPS,Psychiatric care beds,NOMBRENB,Number,GBR,United Kingdom,2010,2010,33894
+HOPILIPS,Psychiatric care beds,NOMBRENB,Number,GBR,United Kingdom,2011,2011,32910
+HOPILIPS,Psychiatric care beds,NOMBRENB,Number,GBR,United Kingdom,2012,2012,31625
+HOPILIPS,Psychiatric care beds,NOMBRENB,Number,GBR,United Kingdom,2013,2013,30677
+HOPILIPS,Psychiatric care beds,NOMBRENB,Number,GBR,United Kingdom,2014,2014,29782
+HOPILIPS,Psychiatric care beds,NOMBRENB,Number,GBR,United Kingdom,2015,2015,27040
+HOPILIPS,Psychiatric care beds,NOMBRENB,Number,GBR,United Kingdom,2016,2016,26058
+HOPILIPS,Psychiatric care beds,NOMBRENB,Number,GBR,United Kingdom,2017,2017,25398
+,,,,,,,,
+,,,,,,,,
+Beds in publicly owned hospitals,,,,,,,,
+VAR,Variable,UNIT,Measure,COU,Country,YEA,Year,Value
+HOPITPOH,Beds in publicly owned hospitals,NOMBRENB,Number,GBR,United Kingdom,2000,2000,240144
+HOPITPOH,Beds in publicly owned hospitals,NOMBRENB,Number,GBR,United Kingdom,2001,2001,238641
+HOPITPOH,Beds in publicly owned hospitals,NOMBRENB,Number,GBR,United Kingdom,2002,2002,236205
+HOPITPOH,Beds in publicly owned hospitals,NOMBRENB,Number,GBR,United Kingdom,2003,2003,235512
+HOPITPOH,Beds in publicly owned hospitals,NOMBRENB,Number,GBR,United Kingdom,2004,2004,231399
+HOPITPOH,Beds in publicly owned hospitals,NOMBRENB,Number,GBR,United Kingdom,2005,2005,224882
+HOPITPOH,Beds in publicly owned hospitals,NOMBRENB,Number,GBR,United Kingdom,2006,2006,215513
+HOPITPOH,Beds in publicly owned hospitals,NOMBRENB,Number,GBR,United Kingdom,2007,2007,207789
+HOPITPOH,Beds in publicly owned hospitals,NOMBRENB,Number,GBR,United Kingdom,2008,2008,205976
+HOPITPOH,Beds in publicly owned hospitals,NOMBRENB,Number,GBR,United Kingdom,2009,2009,203326
+HOPITPOH,Beds in publicly owned hospitals,NOMBRENB,Number,GBR,United Kingdom,2010,2010,183831
+HOPITPOH,Beds in publicly owned hospitals,NOMBRENB,Number,GBR,United Kingdom,2011,2011,181972
+HOPITPOH,Beds in publicly owned hospitals,NOMBRENB,Number,GBR,United Kingdom,2012,2012,178841
+HOPITPOH,Beds in publicly owned hospitals,NOMBRENB,Number,GBR,United Kingdom,2013,2013,176791
+HOPITPOH,Beds in publicly owned hospitals,NOMBRENB,Number,GBR,United Kingdom,2014,2014,176324
+HOPITPOH,Beds in publicly owned hospitals,NOMBRENB,Number,GBR,United Kingdom,2015,2015,169995
+HOPITPOH,Beds in publicly owned hospitals,NOMBRENB,Number,GBR,United Kingdom,2016,2016,168934
+HOPITPOH,Beds in publicly owned hospitals,NOMBRENB,Number,GBR,United Kingdom,2017,2017,167589
