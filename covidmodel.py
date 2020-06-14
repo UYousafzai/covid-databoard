@@ -95,7 +95,7 @@ def simulate(country, params):
         print(y0)
         ret = odeint(derivatives, y0, t, args=(R0_st, k, x0, R0_end,
                                             gamma, sigma, N, prob_Inf_to_Crit, prob_Crit_to_D, Beds))
-        S, E, I, C, R, D = ret.T
+        S, E, I, C, R, D = map(lambda x: x.astype(np.int32), ret.T)
         # R0_over_t = r0_y_inter
         total_CFR = [0] + [100 * D[i] / sum(sigma*E[:i]) if sum(
             sigma*E[:i]) > 0 else 0 for i in range(1, len(t))]
@@ -121,7 +121,7 @@ def simulate(country, params):
                                 s=s)
 
     dates = list(map(lambda date: str(date.date()), dates))
-    return dates, S.tolist(), E.tolist(), (I*0.2).tolist(), I.tolist(), C.tolist(), R.tolist(), D.tolist(), (E+I+C).tolist(), total_CFR, daily_CFR, beds, confirmed_cases.tolist(), confirmed_deaths.tolist()
+    return dates, S.tolist(), E.tolist(), (I*0.2).astype(np.int32).tolist(), I.tolist(), C.tolist(), R.tolist(), D.tolist(), (E+I+C).tolist(), total_CFR, daily_CFR, beds, confirmed_cases.tolist(), confirmed_deaths.tolist()
 
 
 
